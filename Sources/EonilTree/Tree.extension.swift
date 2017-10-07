@@ -87,34 +87,6 @@ public extension Tree {
     }
 }
 
-public extension Tree {
-    ///
-    /// - Returns:
-    ///     A sorted result of all subtrees by performing *Topological Sort*.
-    ///
-    public func sortedTopologically() -> [Tree] {
-        var a = [Tree]()
-        visitUsingDFS { a.append($0) }
-        return a
-    }
-//    ///
-//    /// Iterates all descendant subtrees using *Depth First Search*.
-//    ///
-//    public func makeIterator() -> AnyIterator<Tree> {
-//        let root = self
-//        return AnyIterator { () -> Tree? in
-//
-//            root
-//        }
-//    }
-    private func visitUsingDFS(_ callback: (Tree) -> Void) {
-        callback(self)
-        for subtree in subtrees {
-            subtree.visitUsingDFS(callback)
-        }
-    }
-}
-
 private extension IndexPath {
     func splitFirst() -> (Int, IndexPath) {
         precondition(count >= 1)

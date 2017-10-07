@@ -86,6 +86,9 @@ public extension Tree {
             get { return Tree<Node>(raw[position]) }
             set { raw[position] = newValue.impl }
         }
+        public mutating func replaceSubrange<C, R>(_ subrange: R, with newElements: C) where C : Collection, R : RangeExpression, Tree<Node> == C.Element, Tree.SubtreeCollection.Index == R.Bound {
+            raw.replaceSubrange(subrange, with: newElements.lazy.map({ $0.impl }))
+        }
     }
 }
 

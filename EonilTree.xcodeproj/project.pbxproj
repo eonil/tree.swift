@@ -7,14 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453A5B671F87D7B100EDAB63 /* TreeLazyDepthFirstIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453A5B661F87D7B100EDAB63 /* TreeLazyDepthFirstIterator.swift */; };
+		453A5B681F87D7B100EDAB63 /* TreeLazyDepthFirstIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453A5B661F87D7B100EDAB63 /* TreeLazyDepthFirstIterator.swift */; };
 		45552FA81F8344F700892CC5 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Tree.swift */; };
 		45552FA91F8344F700892CC5 /* Tree.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Tree.extension.swift */; };
 		45552FAA1F8344F700892CC5 /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* IndexPath.swift */; };
-		45552FCE1F83466F00892CC5 /* EonilTree_macOS_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45552FCD1F83466F00892CC5 /* EonilTree_macOS_UnitTests.swift */; };
 		45552FD01F83466F00892CC5 /* libEonilTree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45552F9F1F8344E200892CC5 /* libEonilTree.a */; };
 		45552FE31F8346C700892CC5 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Tree.swift */; };
 		45552FE41F8346C700892CC5 /* Tree.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Tree.extension.swift */; };
 		45552FE51F8346C700892CC5 /* IndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* IndexPath.swift */; };
+		45A649C01F8879410083B4DA /* nq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A649BE1F88793E0083B4DA /* nq.swift */; };
+		45A649C11F8879420083B4DA /* nq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A649BE1F88793E0083B4DA /* nq.swift */; };
+		45A649CA1F8879700083B4DA /* Tree.Sqeuence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A649C91F8879700083B4DA /* Tree.Sqeuence.swift */; };
+		45A649CB1F8879700083B4DA /* Tree.Sqeuence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A649C91F8879700083B4DA /* Tree.Sqeuence.swift */; };
+		45A649CD1F8879860083B4DA /* Tree.sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A649CC1F8879860083B4DA /* Tree.sorted.swift */; };
+		45A649CE1F8879860083B4DA /* Tree.sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A649CC1F8879860083B4DA /* Tree.sorted.swift */; };
+		45A649D41F887C500083B4DA /* EonilTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* EonilTreeTests.swift */; };
+		45A649D61F8881420083B4DA /* TestSupportUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A649D51F8881420083B4DA /* TestSupportUtil.swift */; };
+		45DF3F2B1F88674C00B7A694 /* Tree.eq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF3F291F88674700B7A694 /* Tree.eq.swift */; };
+		45DF3F2C1F88674D00B7A694 /* Tree.eq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF3F291F88674700B7A694 /* Tree.eq.swift */; };
+		45DF3F381F8868DA00B7A694 /* eq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF3F371F8868DA00B7A694 /* eq.swift */; };
+		45DF3F391F8868DA00B7A694 /* eq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF3F371F8868DA00B7A694 /* eq.swift */; };
+		45DF3F3B1F88698F00B7A694 /* Tree.CustomDebugStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF3F3A1F88698F00B7A694 /* Tree.CustomDebugStringConvertible.swift */; };
+		45DF3F3C1F88698F00B7A694 /* Tree.CustomDebugStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DF3F3A1F88698F00B7A694 /* Tree.CustomDebugStringConvertible.swift */; };
 		OBJ_24 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,11 +56,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		453A5B661F87D7B100EDAB63 /* TreeLazyDepthFirstIterator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeLazyDepthFirstIterator.swift; sourceTree = "<group>"; };
 		45552F9F1F8344E200892CC5 /* libEonilTree.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEonilTree.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		45552FCB1F83466F00892CC5 /* EonilTree-macOS-UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EonilTree-macOS-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		45552FCD1F83466F00892CC5 /* EonilTree_macOS_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EonilTree_macOS_UnitTests.swift; sourceTree = "<group>"; };
 		45552FCF1F83466F00892CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45552FDA1F8346B800892CC5 /* libEonilTree.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEonilTree.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		45A649BE1F88793E0083B4DA /* nq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nq.swift; sourceTree = "<group>"; };
+		45A649C91F8879700083B4DA /* Tree.Sqeuence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.Sqeuence.swift; sourceTree = "<group>"; };
+		45A649CC1F8879860083B4DA /* Tree.sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.sorted.swift; sourceTree = "<group>"; };
+		45A649D11F887A9F0083B4DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		45A649D51F8881420083B4DA /* TestSupportUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupportUtil.swift; sourceTree = "<group>"; };
+		45DF3F291F88674700B7A694 /* Tree.eq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.eq.swift; sourceTree = "<group>"; };
+		45DF3F371F8868DA00B7A694 /* eq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eq.swift; sourceTree = "<group>"; };
+		45DF3F3A1F88698F00B7A694 /* Tree.CustomDebugStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.CustomDebugStringConvertible.swift; sourceTree = "<group>"; };
 		OBJ_10 /* IndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPath.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Tree.extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.extension.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
@@ -82,7 +105,6 @@
 		45552FCC1F83466F00892CC5 /* EonilTree-macOS-UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				45552FCD1F83466F00892CC5 /* EonilTree_macOS_UnitTests.swift */,
 				45552FCF1F83466F00892CC5 /* Info.plist */,
 			);
 			path = "EonilTree-macOS-UnitTests";
@@ -100,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_15 /* EonilTreeTests.swift */,
+				45A649D51F8881420083B4DA /* TestSupportUtil.swift */,
 			);
 			name = EonilTreeTests;
 			path = Tests/EonilTreeTests;
@@ -118,6 +141,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				45A649D11F887A9F0083B4DA /* README.md */,
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_13 /* Tests */,
@@ -139,7 +163,14 @@
 			children = (
 				OBJ_12 /* Tree.swift */,
 				OBJ_11 /* Tree.extension.swift */,
+				45DF3F291F88674700B7A694 /* Tree.eq.swift */,
+				45A649CC1F8879860083B4DA /* Tree.sorted.swift */,
+				45A649C91F8879700083B4DA /* Tree.Sqeuence.swift */,
+				45DF3F3A1F88698F00B7A694 /* Tree.CustomDebugStringConvertible.swift */,
 				OBJ_10 /* IndexPath.swift */,
+				453A5B661F87D7B100EDAB63 /* TreeLazyDepthFirstIterator.swift */,
+				45DF3F371F8868DA00B7A694 /* eq.swift */,
+				45A649BE1F88793E0083B4DA /* nq.swift */,
 			);
 			name = EonilTree;
 			path = Sources/EonilTree;
@@ -285,9 +316,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DF3F2C1F88674D00B7A694 /* Tree.eq.swift in Sources */,
+				45A649C11F8879420083B4DA /* nq.swift in Sources */,
 				45552FA91F8344F700892CC5 /* Tree.extension.swift in Sources */,
+				45DF3F3B1F88698F00B7A694 /* Tree.CustomDebugStringConvertible.swift in Sources */,
 				45552FAA1F8344F700892CC5 /* IndexPath.swift in Sources */,
 				45552FA81F8344F700892CC5 /* Tree.swift in Sources */,
+				45A649CA1F8879700083B4DA /* Tree.Sqeuence.swift in Sources */,
+				45A649CD1F8879860083B4DA /* Tree.sorted.swift in Sources */,
+				453A5B671F87D7B100EDAB63 /* TreeLazyDepthFirstIterator.swift in Sources */,
+				45DF3F381F8868DA00B7A694 /* eq.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +333,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45552FCE1F83466F00892CC5 /* EonilTree_macOS_UnitTests.swift in Sources */,
+				45A649D41F887C500083B4DA /* EonilTreeTests.swift in Sources */,
+				45A649D61F8881420083B4DA /* TestSupportUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,9 +342,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DF3F2B1F88674C00B7A694 /* Tree.eq.swift in Sources */,
+				45A649C01F8879410083B4DA /* nq.swift in Sources */,
 				45552FE41F8346C700892CC5 /* Tree.extension.swift in Sources */,
+				45DF3F3C1F88698F00B7A694 /* Tree.CustomDebugStringConvertible.swift in Sources */,
 				45552FE51F8346C700892CC5 /* IndexPath.swift in Sources */,
 				45552FE31F8346C700892CC5 /* Tree.swift in Sources */,
+				45A649CB1F8879700083B4DA /* Tree.Sqeuence.swift in Sources */,
+				45A649CE1F8879860083B4DA /* Tree.sorted.swift in Sources */,
+				453A5B681F87D7B100EDAB63 /* TreeLazyDepthFirstIterator.swift in Sources */,
+				45DF3F391F8868DA00B7A694 /* eq.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
