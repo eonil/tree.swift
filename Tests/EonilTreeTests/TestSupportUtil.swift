@@ -22,7 +22,7 @@ struct TestSupportUtil {
     ///     result. For example, you can use exactly same state of
     ///     PRNG, and it will produce exactly same result.
     ///
-    static func makeRandomStructuredTreeWithSequentialNode(depth: Int = 4, maxChildrenCount: Int = 32, random: GKRandom = sharedRandom, nodeSeed: MutableBox<Int> = MutableBox(0)) -> Tree<Int> {
+    static func makeRandomStructuredTreeWithSequentialNode(depth: Int = 4, maxChildrenCount: Int = 32, random: GKRandom = makeReproducibleRandom(seed: 0), nodeSeed: MutableBox<Int> = MutableBox(0)) -> Tree<Int> {
         nodeSeed.value += 1
         var t = Tree<Int>(node: nodeSeed.value)
         guard depth > 0 else { return t }
@@ -40,7 +40,6 @@ struct TestSupportUtil {
     static func makeReproducibleRandom(seed: UInt64) -> GKRandom {
         return GKMersenneTwisterRandomSource(seed: seed)
     }
-    private static let sharedRandom = GKMersenneTwisterRandomSource(seed: 0)
 }
 extension TestSupportUtil {
     final class MutableBox<T> {

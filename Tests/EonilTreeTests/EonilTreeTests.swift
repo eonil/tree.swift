@@ -109,8 +109,6 @@ class EonilTreeTests: XCTestCase {
         let iter = TreeLazyDepthFirstIterator(t)
         let iterated = Array(iter)
         let sorted = t.sorted()
-        print(iterated)
-        print(sorted)
         XCTAssert(iterated == sorted)
     }
     func testLazyDFSIteratorWithManyRandomTrees() {
@@ -158,6 +156,99 @@ class EonilTreeTests: XCTestCase {
             let iteratedSubtrees = iterated.map({ t[$0] })
             let sorted = t.sorted()
             XCTAssert(iteratedSubtrees == sorted)
+        }
+    }
+    func testLazyDFSIndexPathIteratorSkippingWithSmallTree() {
+        typealias IndexPath = Foundation.IndexPath
+        typealias T = Tree<Int>
+        var t = Tree(node: 111)
+        t.insert(at: [0], Tree(node: 222))
+        t.insert(at: [0, 0], Tree(node: 333))
+        t.insert(at: [0, 1], Tree(node: 444))
+        t.insert(at: [0, 2], Tree(node: 555))
+        t.insert(at: [0, 0, 0], Tree(node: 666))
+        t.insert(at: [0, 0, 0, 0], Tree(node: 777))
+        t.insert(at: [0, 0, 0, 1], Tree(node: 888))
+        t.insert(at: [0, 0, 0, 2], Tree(node: 999))
+        let iter = TreeLazyDepthFirstIndexPathIterator(t) { idxp, _ in
+            switch idxp {
+            case [0, 1]:        return true
+            case [0, 0, 0, 1]:  return true
+            default:            return false
+            }
+        }
+        let a = Array(iter)
+        XCTAssertEqual(a[0], [])
+        XCTAssertEqual(a[1], [0])
+        XCTAssertEqual(a[2], [0, 0])
+        XCTAssertEqual(a[3], [0, 0, 0])
+        XCTAssertEqual(a[4], [0, 0, 0, 0])
+        XCTAssertEqual(a[5], [0, 0, 0, 2])
+        XCTAssertEqual(a[6], [0, 2])
+    }
+    func testLazyDFSIndexPathIteratorSkippingWithSmallTree2() {
+        typealias IndexPath = Foundation.IndexPath
+        typealias T = Tree<Int>
+        var t = Tree(node: 111)
+        t.insert(at: [0], Tree(node: 222))
+        t.insert(at: [0, 0], Tree(node: 333))
+        t.insert(at: [0, 0, 0], Tree(node: 444))
+        t.insert(at: [0, 0, 1], Tree(node: 555))
+        t.insert(at: [0, 0, 2], Tree(node: 666))
+        t.insert(at: [0, 1], Tree(node: 777))
+        t.insert(at: [0, 1, 0], Tree(node: 888))
+        t.insert(at: [0, 1, 1], Tree(node: 999))
+        let iter = TreeLazyDepthFirstIndexPathIterator(t) { idxp, _ in
+            switch idxp {
+            case [0, 1]:        return true
+            case [0, 0, 1]:     return true
+            default:            return false
+            }
+        }
+        let a = Array(iter)
+        XCTAssertEqual(a.count, 5)
+        XCTAssertEqual(a[0], [])
+        XCTAssertEqual(a[1], [0])
+        XCTAssertEqual(a[2], [0, 0])
+        XCTAssertEqual(a[3], [0, 0, 0])
+        XCTAssertEqual(a[4], [0, 0, 2])
+    }
+    func testLazyDFSIndexPathIteratorSkipping() {
+        typealias IndexPath = Foundation.IndexPath
+        let r = TestSupportUtil.makeReproducibleRandom(seed: 0)
+        let treeAll = TestSupportUtil.makeRandomStructuredTreeWithSequentialNode(depth: 8, maxChildrenCount: 4)
+        let iterAll = TreeLazyDepthFirstIndexPathIterator(treeAll)
+        let idxpsAll = Array(iterAll)
+        let idxpsSkipped = Set(idxpsAll.filter({ idxp in idxp != [] && r.nextBool() }))
+        let idxpsFiltered = idxpsAll.filter({ idxp in
+            for idxSkipped in idxpsSkipped {
+                if idxp.starts(with: idxSkipped) { return false }
+            }
+            return true
+        })
+
+        let iterFiltered1 = TreeLazyDepthFirstIndexPathIterator(treeAll) { idxp, _ in idxpsSkipped.contains(idxp) }
+        let idxpsFiltered1 = Array(iterFiltered1)
+        XCTAssertEqual(idxpsFiltered, idxpsFiltered1)
+    }
+    func testLazyDFSIndexPathIteratorSkippingWithManyRandomTrees() {
+        typealias IndexPath = Foundation.IndexPath
+        let r = TestSupportUtil.makeReproducibleRandom(seed: 0)
+        for _ in 0..<8 {
+            let treeAll = TestSupportUtil.makeRandomStructuredTreeWithSequentialNode(random: r)
+            let iterAll = TreeLazyDepthFirstIndexPathIterator(treeAll)
+            let idxpsAll = Array(iterAll)
+            let idxpsSkipped = Set(idxpsAll.filter({ idxp in idxp != [] && r.nextBool() }))
+            let idxpsFiltered = idxpsAll.filter({ idxp in
+                for idxSkipped in idxpsSkipped {
+                    if idxp.starts(with: idxSkipped) { return false }
+                }
+                return true
+            })
+
+            let iterFiltered1 = TreeLazyDepthFirstIndexPathIterator(treeAll) { idxp, _ in idxpsSkipped.contains(idxp) }
+            let idxpsFiltered1 = Array(iterFiltered1)
+            XCTAssertEqual(idxpsFiltered, idxpsFiltered1)
         }
     }
 }
