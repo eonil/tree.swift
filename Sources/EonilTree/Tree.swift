@@ -26,8 +26,8 @@ public struct Tree<Node> {
     public init(node: Node) {
         impl = TreeImpl(node)
     }
-    public init<S>(node: Node, subnodes: S) where S: Sequence, S.Element == Tree {
-        impl = TreeImpl(node, Array(subnodes.lazy.map({ $0.impl })))
+    public init<S>(node: Node, subtrees: S) where S: Sequence, S.Element == Tree {
+        impl = TreeImpl(node, Array(subtrees.lazy.map({ $0.impl })))
     }
     fileprivate init(_ impl: TreeImpl<Node>) {
         self.impl = impl
