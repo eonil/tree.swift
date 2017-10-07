@@ -28,8 +28,8 @@ executed due to lack of PRGN implementation which is included in GameKit.
 Maintenance
 ---------------
 File name mainly follows major member name of its content.
-`eq.swift` and `nq.swift` are supposed to be `==.swift` and `!=.swift`, but this makes trouble
-with SPM build, and avoided.
+`eq.swift` and `nq.swift` are supposed to be `==.swift` and `!=.swift`, but such names
+make troubles with SPM build, and avoided.
 
 
 
