@@ -37,7 +37,9 @@ public extension Tree {
         switch path.count {
         case 0:     return self
         case 1:     return at(path[0])
-        default:    return at(path.dropFirst())
+        default:
+            let (i, subpath) = path.splitFirst()
+            return subtrees[i].at(subpath)
         }
     }
     ///

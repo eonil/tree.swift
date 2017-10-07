@@ -13,15 +13,15 @@
 /// does not change if you change content of source tree.
 ///
 public struct TreeLazyDepthFirstIterator<Node>: IteratorProtocol {
-    private var queue = [Tree<Node>]()
+    private var stack = [Tree<Node>]()
     
     public  init(_ tree: Tree<Node>) {
-        queue.append(tree)
+        stack.append(tree)
     }
     public mutating func next() -> Tree<Node>? {
-        guard queue.isEmpty == false else { return nil }
-        let tree = queue.removeFirst()
-        queue.insert(contentsOf: tree.subtrees, at: 0)
+        guard stack.isEmpty == false else { return nil }
+        let tree = stack.removeLast()
+        stack.append(contentsOf: tree.subtrees.lazy.reversed())
         return tree
     }
 }

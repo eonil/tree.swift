@@ -29,6 +29,21 @@ class EonilTreeTests: XCTestCase {
         XCTAssertEqual(t[[]].node, 111)
         XCTAssertEqual(t[[0]].node, 222)
     }
+
+    func testTreeQueryByIndexPath() {
+        typealias T = Tree<Int>
+        var t = T(node: 111)
+        t.insert(at: [0], Tree(node: 222))
+        t.insert(at: [0, 0], Tree(node: 333))
+        t.insert(at: [0, 0, 0], Tree(node: 444))
+        t.insert(at: [0, 0, 0, 0], Tree(node: 555))
+        XCTAssertEqual(t.at([]).node, 111)
+        XCTAssertEqual(t.at([0]).node, 222)
+        XCTAssertEqual(t.at([0, 0]).node, 333)
+        XCTAssertEqual(t.at([0, 0, 0]).node, 444)
+        XCTAssertEqual(t.at([0, 0, 0, 0]).node, 555)
+    }
+
     func testLazyDFSIterator() {
         typealias T = Tree<Int>
         var t = Tree(node: 111)
@@ -106,6 +121,43 @@ class EonilTreeTests: XCTestCase {
             let iterated = Array(iter)
             let sorted = t.sorted()
             XCTAssert(iterated == sorted)
+        }
+    }
+
+
+    func testLazyDFSIndexPathIterator() {
+        typealias T = Tree<Int>
+        var t = Tree(node: 111)
+        t.insert(at: [0], Tree(node: 222))
+        t.insert(at: [0, 0], Tree(node: 333))
+        t.insert(at: [0, 0, 0], Tree(node: 444))
+        t.insert(at: [0, 0, 0, 0], Tree(node: 555))
+        XCTAssertEqual(t.count, 5)
+        let iter = TreeLazyDepthFirstIndexPathIterator(t)
+        let a = Array(iter)
+        XCTAssertEqual(a[0], [])
+        XCTAssertEqual(a[1], [0])
+        XCTAssertEqual(a[2], [0, 0])
+        XCTAssertEqual(a[3], [0, 0, 0])
+        XCTAssertEqual(a[4], [0, 0, 0, 0])
+        let b = a.map({ t.at($0) })
+        XCTAssertEqual(b[0].node, 111)
+        XCTAssertEqual(b[1].node, 222)
+        XCTAssertEqual(b[2].node, 333)
+        XCTAssertEqual(b[3].node, 444)
+        XCTAssertEqual(b[4].node, 555)
+        let c = t.sortedTopologically()
+        XCTAssert(b == c)
+    }
+    func testLazyDFSIndexPathIteratorWithManyRandomTrees() {
+        let r = TestSupportUtil.makeReproducibleRandom(seed: 0)
+        for _ in 0..<64 {
+            let t = TestSupportUtil.makeRandomStructuredTreeWithSequentialNode(random: r)
+            let iter = TreeLazyDepthFirstIndexPathIterator(t)
+            let iterated = Array(iter)
+            let iteratedSubtrees = iterated.map({ t[$0] })
+            let sorted = t.sorted()
+            XCTAssert(iteratedSubtrees == sorted)
         }
     }
 }
